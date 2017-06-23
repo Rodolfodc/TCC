@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Deep Analyser System</title>
+  </head>
+  <body>
+    {% block content %}
+    <h1>Sistema de Analise de Malware</h1>
+    <ul>
+      <li><a href="{% url 'upload:upload' %}">Upload Page</a></li>
+      <li><a href="{% url 'upload:file_upload' %}">Upload File</a></li>
+      <li><a href="{% url 'home:index' %}">Voltar</a></li>
+    </ul>
+    {% endblock %}
+ </body>
+</html>

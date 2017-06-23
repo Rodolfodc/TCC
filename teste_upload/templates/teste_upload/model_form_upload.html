@@ -1,0 +1,57 @@
+
+<head>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href= {% static "css/bootstrap.min.css" %}>
+<!--  <link rel="stylesheet" type="text/css" href="/teste_upload/{{ STATIC_URL}}css/bootstrap-responsive.min.css">
+  <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"/> -->
+</head> 
+<body>
+
+{% block content %} 
+
+<!-- 
+<style rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/> -->
+<nav class="navbar navbar-inverse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+</nav>
+        
+
+  <div>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_table }}
+      <button class="btn btn-primary " type="submit">Upload</button>
+    </form>
+  <div>
+
+
+  <div ><span class="label label-success"> Uploaded files: </span></div>
+  </br>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <thread>
+          <tr>
+            <th> Nome </th>
+            <th> Hora </th>
+            <th> Descricao </th>
+          </tr>
+        </thread>
+        {% for obj in documents %}
+          <tbody>
+            <tr>
+              <td> {{ obj.document.name }} </td>
+              <td> {{ obj.uploaded_at   }} </td>
+              <td> {{ obj.description   }} </td>
+            <tr>
+          </tbody>
+        {% endfor %}
+      </table>
+  </div>
+  
+  <p><a href="{% url 'home:index' %}">Return to home</a></p>
+{% endblock %}
+<!-- </body> -->

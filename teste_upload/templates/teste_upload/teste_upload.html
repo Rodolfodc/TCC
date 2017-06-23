@@ -1,0 +1,25 @@
+<html>
+<body>
+	<form name = "form" enctype = "multi-part/form-data" action = "{% url "test_upload:upload" %}" method="POST">{% csrf_token %}
+		<div style = "max-width:460px;">
+			<center>
+				<input type="text" style="margin-left: 19%;" placeholder="Name" name="name"/>
+			</center>
+		</div>
+		<br>
+		<div style = "max-width:460px;">
+			<center>
+				<input type="file" style="margin-left: 19%" placeholder="File uploading" name="file"/>
+			</center>
+		</div>
+		<br>
+		<div style = "max-width:460px;">
+			<center>
+				<button style="border: 1px; background-color: #4285F4; margin-top: 9%" type="submit" value="upload">
+					<strong>Upload File</strong>
+				</button>
+			</center>
+		</div>
+	</form>
+</body>
+</html>
